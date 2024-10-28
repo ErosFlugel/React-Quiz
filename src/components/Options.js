@@ -1,18 +1,20 @@
-function Options({ question, dispatch, answer }) {
+import { useQuiz } from '../contexts/QuizContext';
+
+function Options() {
+  const { dispatch, answer, currentQuestion } = useQuiz();
+
   const hasAnswered = answer !== null;
   return (
     <div className='options'>
-      {question.options.map((option, index) => (
+      {currentQuestion.options.map((option, index) => (
         <button
           className={`btn btn-option ${index === answer ? 'answer' : ''} ${
-            hasAnswered ? (index === question.correctOption ? 'correct' : 'wrong') : ''
+            hasAnswered ? (index === currentQuestion.correctOption ? 'correct' : 'wrong') : ''
           }`}
           key={option}
           //We disabled the buttons once an answer has been set
           disabled={hasAnswered}
-          onClick={() => {
-            dispatch({ type: 'newAnswer', payload: index });
-          }}
+          onClick={() => dispatch({ type: 'newAnswer', payload: index })}
         >
           {option}
         </button>

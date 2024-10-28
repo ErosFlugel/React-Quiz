@@ -4,7 +4,7 @@
 
 YOUR TASKS:
 
-- Duplicate `src` folder to `src-no-context`
+- Duplicate `src` folder to `src-no-context` (used Git instead)
 - Review data flow and passed props
 - Identify prop drilling problem
 - Use the Context API to fix the (very small) prop drilling problem
