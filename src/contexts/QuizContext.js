@@ -63,8 +63,6 @@ function QuizProvider({ children }) {
   const numQuestions = questions.length;
   const maxPossiblePoints = questions.reduce((acc, question) => question.points + acc, 0);
 
-  const currentQuestion = questions[index];
-
   //Fetching the questions from a Fake-API
   useEffect(() => {
     async function getData() {
@@ -91,7 +89,6 @@ function QuizProvider({ children }) {
         secondsRemaining,
         numQuestions,
         maxPossiblePoints,
-        currentQuestion,
         dispatch,
       }}
     >
